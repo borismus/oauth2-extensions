@@ -10,10 +10,6 @@ using.
 
 Here's a table that will come in handy:
 
-<style>
-  #impls td, #impls th { border: 1px solid #999 }
-  #impls td { padding: 5px }
-</style>
 <table id="impls">
   <tr>
     <th>Adapter</th>
