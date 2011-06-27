@@ -101,3 +101,8 @@ or by passing it as part of the URL (depending on your particular impl):
 to authorize with, you can do that too! Just inject content scripts and
 add permissions for all of the providers you would like to authorize
 with.
+
+[gapi]: https://code.google.com/apis/console/
+[goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
+[oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
+
