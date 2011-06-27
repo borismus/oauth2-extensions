@@ -1,0 +1,22 @@
+{
+  "name": "Facebook Music",
+  "version": "1.0",
+  "description": "Shows a list of your favorite music according to facebook. OAuth 2.0 Extension Demo",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_title": "OAuth 2.0",
+    "default_icon": "icon128.png",
+    "popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.facebook.com/robots.txt*"],
+      "js": ["oauth2/oauth2_inject.js"]
+    }
+  ],
+  "permissions": [
+    "https://graph.facebook.com/"
+  ]
+}
