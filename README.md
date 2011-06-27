@@ -3,7 +3,7 @@
 Register your application with an OAuth 2.0 endpoint that you'd like to
 use. If it's a Google API you're calling, go to the [Google APIs][gapi]
 page, create your application and note your client ID and client secret.
-For more info on this, check out the [Google OAuth 2.0][gouath2] docs.
+For more info on this, check out the [Google OAuth 2.0][goauth2] docs.
 When you setup your application, you will be asked to provide redirect
 URI(s). Please provide the URI that corresponds to the service you're
 using.
