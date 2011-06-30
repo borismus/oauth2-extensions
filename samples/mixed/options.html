@@ -18,7 +18,7 @@
   <button id="github" onclick="javascript:authorize('github')">
     Grant Github Access
   </button>
-
+  <button id="clear" onclick="javascript:clearAuthorized()">Clear Tokens</button>
 <script>
   var google = new OAuth2('google', {
     client_id: '952993494713-h12m6utvq8g8d8et8n2i68plbrr6cr4d.apps.googleusercontent.com',
@@ -39,16 +39,27 @@
 
   function authorize(providerName) {
     var provider = window[providerName];
-    provider.authorize(function() {
-      document.querySelector('#' + providerName).className = 'authorized';
+    provider.authorize(checkAuthorized);
+  }
+
+  function clearAuthorized() {
+    console.log('clear');
+    ['google', 'facebook', 'github'].forEach(function(providerName) {
+      var provider = window[providerName];
+      provider.clearAccessToken();
     });
+    checkAuthorized();
   }
 
   function checkAuthorized() {
+    console.log('checkAuthorized');
     ['google', 'facebook', 'github'].forEach(function(providerName) {
       var provider = window[providerName];
+      var button = document.querySelector('#' + providerName);
       if (provider.get('accessToken')) {
-        document.querySelector('#' + providerName).className = 'authorized';
+        button.classList.add('authorized');
+      } else {
+        button.classList.remove('authorized');
       }
     });
   }

@@ -35,8 +35,11 @@ OAuth2.adapterReverse = localStorage.adapterReverse &&
 
 /**
  * Opens up an authorization popup window. This starts the OAuth 2.0 flow.
+ *
+ * @param {Function} callback Method to call when the user finished auth.
  */
-OAuth2.prototype.openAuthorizationCodePopup = function() {
+OAuth2.prototype.openAuthorizationCodePopup = function(callback) {
+  window['oauth-callback'] = callback;
   // Create a new tab with the OAuth 2.0 prompt
   chrome.tabs.create({url: this.adapter.authorizationCodeURL(this.getConfig())},
   function(tab) {
@@ -145,6 +148,14 @@ OAuth2.prototype.finishAuth = function() {
     }
     that.set('accessTokenDate', (new Date()).valueOf());
 
+    // Loop through existing extension views and excute any stored callbacks.
+    var views = chrome.extension.getViews();
+    for (var i = 0, view; view = views[i]; i++) {
+      if (view['oauth-callback']) {
+        view['oauth-callback']();
+      }
+    };
+
     // Once we get here, close the current tab and we're good to go.
     window.open('', '_self', ''); //bug fix
     window.close();
@@ -179,6 +190,16 @@ OAuth2.prototype.get = function(key) {
  */
 OAuth2.prototype.set = function(key, value) {
   localStorage[this.adapterName + '_' + key] = value;
+};
+
+/**
+ * Wrapper around the localStorage object that clears values prefixed by the
+ * adapter name
+ *
+ * @param {String} key The key to clear from localStorage
+ */
+OAuth2.prototype.clear = function(key) {
+  delete localStorage[this.adapterName + '_' + key];
 };
 
 /**
@@ -279,7 +300,7 @@ OAuth2.prototype.authorize = function(callback) {
   that.adapter = OAuth2.adapters[that.adapterName];
   if (!that.get('accessToken')) {
     // There's no access token yet. Start the authorizationCode flow
-    that.openAuthorizationCodePopup();
+    that.openAuthorizationCodePopup(callback);
   } else if (that.isAccessTokenExpired()) {
     // There's an existing access token but it's expired
     if (that.get('refreshToken')) {
@@ -294,7 +315,7 @@ OAuth2.prototype.authorize = function(callback) {
       });
     } else {
       // No refresh token... just do the popup thing again
-      that.openAuthorizationCodePopup();
+      that.openAuthorizationCodePopup(callback);
     }
   } else {
     // We have an access token, and it's not expired yet
@@ -310,4 +331,11 @@ OAuth2.prototype.authorize = function(callback) {
  */
 OAuth2.prototype.getAccessToken = function() {
   return this.get('accessToken');
+};
+
+/**
+ * Clears an access token, effectively "logging out" of the service.
+ */
+OAuth2.prototype.clearAccessToken = function() {
+  this.clear('accessToken');
 };

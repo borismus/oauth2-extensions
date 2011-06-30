@@ -14,15 +14,18 @@
   "content_scripts": [
     {
       "matches": ["http://www.facebook.com/robots.txt*"],
-      "js": ["oauth2/oauth2_inject.js"]
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
     },
     {
       "matches": ["http://www.google.com/robots.txt*"],
-      "js": ["oauth2/oauth2_inject.js"]
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
     },
     {
       "matches": ["https://github.com/robots.txt*"],
-      "js": ["oauth2/oauth2_inject.js"]
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
     }
   ],
   "permissions": [
