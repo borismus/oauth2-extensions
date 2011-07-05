@@ -105,4 +105,5 @@ with.
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
+[oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master/lib
 
