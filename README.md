@@ -1,3 +1,11 @@
+This is the OAuth 2.0 library for Chrome Extensions. It's available on
+both [github][] and on [google code][].
+
+[Sample extensions][samples] that use this library can be found in this same
+distribution, but please note that you will need to run the
+`cp-oauth2.sh` script inside the `samples` directory to get these
+samples to work.
+
 # How to use this library
 
 Register your application with an OAuth 2.0 endpoint that you'd like to
@@ -47,7 +55,8 @@ redirect URI can be looked up in the table above:
     "content_scripts": [
       {
         "matches": ["http://www.google.com/robots.txt*"],
-        "js": ["oauth2/oauth2_inject.js"]
+        "js": ["oauth2/oauth2_inject.js"],
+        "run_at": "document_start"
       }
     ],
 
@@ -102,8 +111,15 @@ to authorize with, you can do that too! Just inject content scripts and
 add permissions for all of the providers you would like to authorize
 with.
 
+For more information about this library, please see this [blog
+post][blog].
+
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
 [oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master/lib
 
+[github]: https://github.com/borismus/oauth2-extensions/
+[google code]: http://code.google.com/p/oauth2-extensions/
+[samples]: https://github.com/borismus/oauth2-extensions/samples
+[blog]: http://smus.com/oauth2-chrome-extensions
