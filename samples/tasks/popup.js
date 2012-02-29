@@ -1,6 +1,6 @@
 /*
  * Copyright 2011 Google Inc. All Rights Reserved.
-
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,13 +21,12 @@ var google = new OAuth2('google', {
 });
 
 google.authorize(function() {
-
   var TASK_CREATE_URL = 'https://www.googleapis.com/tasks/v1/lists/@default/tasks';
 
   var form = document.getElementById('form');
   var success = document.getElementById('success');
 
-  // Hook up the form to create a new task with Google Tasks
+  // Hook up the form to create a new task with Google Tasks.
   form.addEventListener('submit', function(event) {
     event.preventDefault();
     var input = document.getElementById('input');
@@ -35,19 +34,18 @@ google.authorize(function() {
   });
 
   function createTodo(task) {
-    // Make an XHR that creates the task
+    // Make an XHR that creates the task.
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function(event) {
-      if (xhr.readyState == 4) {
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
         if(xhr.status == 200) {
-          // Great success: parse response with JSON
+          // Great success: parse response with JSON.
           var task = JSON.parse(xhr.responseText);
           document.getElementById('taskid').innerHTML = task.id;
           form.style.display = 'none';
           success.style.display = 'block';
-
         } else {
-          // Request failure: something bad happened
+          // Request failure: something bad happened.
         }
       }
     };
@@ -63,6 +61,4 @@ google.authorize(function() {
 
     xhr.send(message);
   }
-
 });
-
