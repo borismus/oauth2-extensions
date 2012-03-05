@@ -38,7 +38,7 @@ google.authorize(function() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
-        if(xhr.status == 200) {
+        if (xhr.status === 200) {
           // Great success: parse response with JSON.
           var task = JSON.parse(xhr.responseText);
           document.getElementById('taskid').innerHTML = task.id;

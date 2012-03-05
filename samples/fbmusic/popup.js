@@ -25,7 +25,7 @@ facebook.authorize(function() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
-      if(xhr.status === 200) {
+      if (xhr.status === 200) {
         // Great success: parse response with JSON.
         var parsed = JSON.parse(xhr.responseText);
         var html = '';
