@@ -1,6 +1,6 @@
 /*
  * Copyright 2011 Google Inc. All Rights Reserved.
-
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,25 +20,21 @@ var facebook = new OAuth2('facebook', {
   api_scope: 'read_stream,user_likes'
 });
 facebook.authorize(function() {
-
 //document.addEventListener('DOMContentLoaded', function() {
-
-  // Make an XHR that creates the task
+  // Make an XHR that creates the task.
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function(event) {
-    if (xhr.readyState == 4) {
-      if(xhr.status == 200) {
-        // Great success: parse response with JSON
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        // Great success: parse response with JSON.
         var parsed = JSON.parse(xhr.responseText);
         var html = '';
-        parsed.data.forEach(function(item, index) {
+        parsed.data.forEach(function(item) {
           html += '<li>' + item.name + '</li>';
         });
         document.querySelector('#music').innerHTML = html;
-        return;
-
       } else {
-        // Request failure: something bad happened
+        // Request failure: something bad happened.
       }
     }
   };
@@ -48,5 +44,4 @@ facebook.authorize(function() {
   xhr.setRequestHeader('Authorization', 'OAuth ' + facebook.getAccessToken());
 
   xhr.send();
-
 });

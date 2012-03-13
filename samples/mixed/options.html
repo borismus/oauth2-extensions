@@ -1,87 +1,86 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <!--
-Copyright 2011 Google Inc. All Rights Reserved.
+  Copyright 2011 Google Inc. All Rights Reserved.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+      http://www.apache.org/licenses/LICENSE-2.0
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
 -->
+<html>
+  <head>
+    <title>OAuth 2.0 Options</title>
+    <script src="oauth2/oauth2.js"></script>
+    <style type="text/css">
+      h1 { font-size: 20px }
+      button.authorized { background: green }
+    </style>
+  </head>
+  <body>
+    <h1>OAuth 2.0 Permissions</h1>
+    <button id="google" onclick="javascript:authorize('google')">
+      Grant Google Access
+    </button>
+    <button id="facebook" onclick="javascript:authorize('facebook')">
+      Grant Facebook Access
+    </button>
+    <button id="github" onclick="javascript:authorize('github')">
+      Grant Github Access
+    </button>
+    <button id="clear" onclick="javascript:clearAuthorized()">Clear Tokens</button>
+    <script type="text/javascript">
+      var google = new OAuth2('google', {
+        client_id: '952993494713-h12m6utvq8g8d8et8n2i68plbrr6cr4d.apps.googleusercontent.com',
+        client_secret: 'IZ4hBSbosuhoWAX4lyAomm-R',
+        api_scope: 'https://www.googleapis.com/auth/tasks'
+      });
 
-<head>
-  <title>OAuth 2.0 Options</title>
-  <script src="oauth2/oauth2.js"></script>
-  <style>
-    h1 { font-size: 20px }
-    button.authorized { background: green }
-  </style>
-</head>
+      var facebook = new OAuth2('facebook', {
+        client_id: '177955888930840',
+        client_secret: 'b42a5741bd3d6de6ac591c7b0e279c9f',
+        api_scope: 'read_stream,user_likes'
+      });
 
-<body>
-  <h1>OAuth 2.0 Permissions</h1>
-  <button id="google" onclick="javascript:authorize('google')">
-    Grant Google Access
-  </button>
-  <button id="facebook" onclick="javascript:authorize('facebook')">
-    Grant Facebook Access
-  </button>
-  <button id="github" onclick="javascript:authorize('github')">
-    Grant Github Access
-  </button>
-  <button id="clear" onclick="javascript:clearAuthorized()">Clear Tokens</button>
-<script>
-  var google = new OAuth2('google', {
-    client_id: '952993494713-h12m6utvq8g8d8et8n2i68plbrr6cr4d.apps.googleusercontent.com',
-    client_secret: 'IZ4hBSbosuhoWAX4lyAomm-R',
-    api_scope: 'https://www.googleapis.com/auth/tasks'
-  });
+      var github = new OAuth2('github', {
+        client_id: '09450dfdc3ae76768b08',
+        client_secret: '8ecfc23e0dba1ce1a295fbabc01fa71db4b80261',
+      });
 
-  var facebook = new OAuth2('facebook', {
-    client_id: '177955888930840',
-    client_secret: 'b42a5741bd3d6de6ac591c7b0e279c9f',
-    api_scope: 'read_stream,user_likes'
-  });
-
-  var github = new OAuth2('github', {
-    client_id: '09450dfdc3ae76768b08',
-    client_secret: '8ecfc23e0dba1ce1a295fbabc01fa71db4b80261',
-  });
-
-  function authorize(providerName) {
-    var provider = window[providerName];
-    provider.authorize(checkAuthorized);
-  }
-
-  function clearAuthorized() {
-    console.log('clear');
-    ['google', 'facebook', 'github'].forEach(function(providerName) {
-      var provider = window[providerName];
-      provider.clearAccessToken();
-    });
-    checkAuthorized();
-  }
-
-  function checkAuthorized() {
-    console.log('checkAuthorized');
-    ['google', 'facebook', 'github'].forEach(function(providerName) {
-      var provider = window[providerName];
-      var button = document.querySelector('#' + providerName);
-      if (provider.get('accessToken')) {
-        button.classList.add('authorized');
-      } else {
-        button.classList.remove('authorized');
+      function authorize(providerName) {
+        var provider = window[providerName];
+        provider.authorize(checkAuthorized);
       }
-    });
-  }
-  checkAuthorized();
-</script>
 
-</body>
+      function clearAuthorized() {
+        console.log('clear');
+        ['google', 'facebook', 'github'].forEach(function(providerName) {
+          var provider = window[providerName];
+          provider.clearAccessToken();
+        });
+        checkAuthorized();
+      }
+
+      function checkAuthorized() {
+        console.log('checkAuthorized');
+        ['google', 'facebook', 'github'].forEach(function(providerName) {
+          var provider = window[providerName];
+          var button = document.querySelector('#' + providerName);
+          if (provider.hasAccessToken()) {
+            button.classList.add('authorized');
+          } else {
+            button.classList.remove('authorized');
+          }
+        });
+      }
+
+      checkAuthorized();
+    </script>
+  </body>
+</html>
