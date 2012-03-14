@@ -39,6 +39,11 @@ Here's a table that will come in handy:
     <td>https://github.com/robots.txt</td>
     <td>https://github.com/login/oauth/access_token</td>
   </tr>
+  <tr>
+    <td>bitly</td>
+    <td>http://bitly.com/robots.txt</td>
+    <td>https://api-ssl.bitly.com/oauth/access_token</td>
+  </tr>
 </table>
 
 #### Step 1: Copy library
