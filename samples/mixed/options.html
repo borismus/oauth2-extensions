@@ -74,7 +74,7 @@ limitations under the License.
     ['google', 'facebook', 'github'].forEach(function(providerName) {
       var provider = window[providerName];
       var button = document.querySelector('#' + providerName);
-      if (provider.get('accessToken')) {
+      if (provider.hasAccessToken()) {
         button.classList.add('authorized');
       } else {
         button.classList.remove('authorized');
