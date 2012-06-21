@@ -119,6 +119,11 @@ with.
 For more information about this library, please see this [blog
 post][blog].
 
+# Contributors
+
+Many thanks to [neocotic@](https://github.com/neocotic) and other
+contributors for the great work in keeping this library up-to-date.
+
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
