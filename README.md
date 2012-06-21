@@ -6,6 +6,11 @@ distribution, but please note that you will need to run the
 `cp-oauth2.sh` script inside the `samples` directory to get these
 samples to work.
 
+# Thanks, contributors!
+
+Many thanks to [neocotic@](https://github.com/neocotic) and other
+contributors for their great work in keeping this library up-to-date.
+
 # How to use this library
 
 Register your application with an OAuth 2.0 endpoint that you'd like to
@@ -119,10 +124,6 @@ with.
 For more information about this library, please see this [blog
 post][blog].
 
-# Contributors
-
-Many thanks to [neocotic@](https://github.com/neocotic) and other
-contributors for the great work in keeping this library up-to-date.
 
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
