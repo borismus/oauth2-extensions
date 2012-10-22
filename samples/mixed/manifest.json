@@ -2,13 +2,14 @@
   "name": "Multi OAuth 2.0",
   "version": "1.0",
   "description": "OAuth 2.0 Extension Demo",
+  "manifest_version": 2,
   "icons": {
     "128": "icon128.png"
   },
   "browser_action": {
     "default_title": "OAuth 2.0",
     "default_icon": "icon128.png",
-    "popup": "popup.html"
+    "default_popup": "options.html"
   },
   "options_page": "options.html",
   "content_scripts": [
