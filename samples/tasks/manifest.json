@@ -5,10 +5,11 @@
   "icons": {
     "128": "icon128.png"
   },
+  "manifest_version":2,
   "browser_action": {
     "default_title": "OAuth 2.0",
     "default_icon": "icon128.png",
-    "popup": "popup.html"
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
