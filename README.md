@@ -54,7 +54,8 @@ Here's a table that will come in handy:
 #### Step 1: Copy library
 
 You will need to copy the [oauth2 library][oauth2crx] into your chrome
-extension root into a directory called `oauth2`.
+extension root into a directory called `oauth2`. This can be a clone of
+the repository if you wish.
 
 #### Step 2: Inject content script
 
@@ -128,7 +129,7 @@ post][blog].
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
-[oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master/lib
+[oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master
 
 [github]: https://github.com/borismus/oauth2-extensions/
 [google code]: http://code.google.com/p/oauth2-extensions/
