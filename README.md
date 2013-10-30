@@ -51,7 +51,7 @@ Here's a table that will come in handy:
   </tr>
   <tr>
     <td>feedly</td>
-    <td>[Request it][feedlygooglegroup] http://www.feedly.com/robots.txt</td>
+    <td>http://www.feedly.com/robots.txt</td>
     <td>https://cloud.feedly.com/v3/auth/token</td>
   </tr>
 </table>
