@@ -132,8 +132,6 @@ post][blog].
 
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
-
-[feedlygooglegroup]: https://groups.google.com/forum/#!searchin/feedly-cloud/token$20grant_type/feedly-cloud/DWsqb5ApqR8/wsE-HLV_dx0J
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
 [oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master/lib
 
