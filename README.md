@@ -49,6 +49,11 @@ Here's a table that will come in handy:
     <td>http://bitly.com/robots.txt</td>
     <td>https://api-ssl.bitly.com/oauth/access_token</td>
   </tr>
+  <tr>
+    <td>feedly</td>
+    <td>[Request it][feedlygooglegroup] http://www.feedly.com/robots.txt</td>
+    <td>https://cloud.feedly.com/v3/auth/token</td>
+  </tr>
 </table>
 
 #### Step 1: Copy library
@@ -127,6 +132,8 @@ post][blog].
 
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
+
+[feedlygooglegroup]: https://groups.google.com/forum/#!searchin/feedly-cloud/token$20grant_type/feedly-cloud/DWsqb5ApqR8/wsE-HLV_dx0J
 [oauth crx]: http://code.google.com/chrome/extensions/tut_oauth.html
 [oauth2crx]: https://github.com/borismus/oauth2-extensions/tree/master/lib
 
