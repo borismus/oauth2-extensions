@@ -21,5 +21,8 @@
   "permissions": [
     "https://accounts.google.com/o/oauth2/token",
     "https://www.googleapis.com/"
+  ],
+  "web_accessible_resources" : [
+    "oauth2/oauth2.html"
   ]
 }

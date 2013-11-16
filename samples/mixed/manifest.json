@@ -33,5 +33,8 @@
     "https://graph.facebook.com/",
     "https://accounts.google.com/o/oauth2/token",
     "https://github.com/"
+  ],
+  "web_accessible_resources" : [
+    "oauth2/oauth2.html"
   ]
 }
