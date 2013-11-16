@@ -49,6 +49,11 @@ Here's a table that will come in handy:
     <td>http://bitly.com/robots.txt</td>
     <td>https://api-ssl.bitly.com/oauth/access_token</td>
   </tr>
+  <tr>
+    <td>feedly</td>
+    <td>http://www.feedly.com/robots.txt</td>
+    <td>https://cloud.feedly.com/v3/auth/token</td>
+  </tr>
 </table>
 
 #### Step 1: Copy library
