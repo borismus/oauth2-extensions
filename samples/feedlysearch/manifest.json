@@ -1,0 +1,32 @@
+{
+  "name": "Feedly Search",
+  "version": "1.0",
+  "description": "OAuth 2.0 Feedly Chrome Extension Sample",
+  "manifest_version": 2,
+  "icons": {
+    "128": "icon128.png"
+  },
+  "browser_action": {
+    "default_title": "Feedly Search",
+    "default_icon": "icon128.png"
+  },
+  "background": { 
+    "scripts": [
+      "oauth2/oauth2.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://www.feedly.com/robots.txt*"],
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources" : [
+    "oauth2/oauth2.html"
+  ],
+  "permissions": [
+    "https://sandbox.feedly.com/"
+  ]
+}
