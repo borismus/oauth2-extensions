@@ -83,7 +83,10 @@ token URI can be looked up in the table above as well.
 
     "permissions": [
       "https://accounts.google.com/o/oauth2/token"
-    ]
+    ],
+    "web_accessible_resources": [
+      "oauth2/oauth2.html"
+    ],
 
 #### Step 4: Include the OAuth 2.0 library
 
