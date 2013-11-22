@@ -67,13 +67,15 @@ Then you need to modify your manifest.json file to include a content
 script at the redirect URL used by the Google adapter. The "matches"
 redirect URI can be looked up in the table above:
 
-    "content_scripts": [
-      {
-        "matches": ["http://www.google.com/robots.txt*"],
-        "js": ["oauth2/oauth2_inject.js"],
-        "run_at": "document_start"
-      }
-    ],
+```Javascript
+"content_scripts": [
+  {
+    "matches": ["http://www.google.com/robots.txt*"],
+    "js": ["oauth2/oauth2_inject.js"],
+    "run_at": "document_start"
+  }
+],
+```
 
 #### Step 3: Allow access token URL
 
@@ -81,19 +83,23 @@ Also, you will need to add a permission to Google's access token
 granting URL, since the library will do an XHR against it. The access
 token URI can be looked up in the table above as well.
 
-    "permissions": [
-      "https://accounts.google.com/o/oauth2/token"
-    ],
-    "web_accessible_resources": [
-      "oauth2/oauth2.html"
-    ],
+```Javascript
+"permissions": [
+  "https://accounts.google.com/o/oauth2/token"
+],
+"web_accessible_resources": [
+  "oauth2/oauth2.html"
+],
+```
 
 #### Step 4: Include the OAuth 2.0 library
 
 Next, in your extension's code, you should include the OAuth 2.0
 library:
 
-    <script src="/oauth2/oauth2.js"></script>
+```html
+<script src="/oauth2/oauth2.js"></script>
+```
 
 #### Step 5: Configure the OAuth 2.0 endpoint
 
@@ -102,27 +108,33 @@ clientSecret and apiScopes from the registration page. The authorize()
 method may create a new popup window for the user to grant your
 extension access to the OAuth2 endpoint.
 
-    var googleAuth = new OAuth2('google', {
-      client_id: '17755888930840',
-      client_secret: 'b4a5741bd3d6de6ac591c7b0e279c9f',
-      api_scope: 'https://www.googleapis.com/auth/tasks'
-    });
+```Javascript
+var googleAuth = new OAuth2('google', {
+  client_id: '17755888930840',
+  client_secret: 'b4a5741bd3d6de6ac591c7b0e279c9f',
+  api_scope: 'https://www.googleapis.com/auth/tasks'
+});
 
-    googleAuth.authorize(function() {
-      // Ready for action, can now make requests with
-      googleAuth.getAccessToken()
-    });
+googleAuth.authorize(function() {
+  // Ready for action, can now make requests with
+  googleAuth.getAccessToken()
+});
+```
 
 #### Step 6: Use the access token
 
 Now that your user has an access token via `auth.getAccessToken()`, you
 can request protected data by adding the accessToken as a request header
 
-    xhr.setRequestHeader('Authorization', 'OAuth ' + myAuth.getAccessToken())
+```Javascript
+xhr.setRequestHeader('Authorization', 'OAuth ' + myAuth.getAccessToken())
+```
 
 or by passing it as part of the URL (depending on your particular impl):
 
-    myUrl + '?oauth_token=' + myAuth.getAccessToken();
+```Javascript
+myUrl + '?oauth_token=' + myAuth.getAccessToken();
+```
 
 **Note**: if you have multiple OAuth 2.0 endpoints that you would like
 to authorize with, you can do that too! Just inject content scripts and
