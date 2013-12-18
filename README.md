@@ -54,6 +54,16 @@ Here's a table that will come in handy:
     <td>http://www.feedly.com/robots.txt</td>
     <td>https://cloud.feedly.com/v3/auth/token</td>
   </tr>
+  <tr>
+    <td>salesforce</td>
+    <td>https://login.salesforce.com/services/oauth2/success</td>
+    <td>https://login.salesforce.com/services/oauth2/token</td>
+  </tr>
+  <tr>
+    <td>salesforce_test</td>
+    <td>https://test.salesforce.com/services/oauth2/success</td>
+    <td>https://test.salesforce.com/services/oauth2/token</td>
+  </tr>
 </table>
 
 #### Step 1: Copy library
@@ -108,7 +118,17 @@ extension access to the OAuth2 endpoint.
       api_scope: 'https://www.googleapis.com/auth/tasks'
     });
 
-    googleAuth.authorize(function() {
+    googleAuth.authorize(function(error, details) {
+      if (error) {
+        // Handle error
+        return;
+      }
+
+      // The details object is the result of the call to the
+      // adapters parseAccessToken function - there may be extra
+      // information returned from the server, e.g. the salesforce
+      // instanceUrl value when authing with salesforce
+
       // Ready for action, can now make requests with
       googleAuth.getAccessToken()
     });

@@ -27,12 +27,22 @@
       "matches": ["https://github.com/robots.txt*"],
       "js": ["oauth2/oauth2_inject.js"],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://test.salesforce.com/services/oauth2/success*",
+        "https://login.salesforce.com/services/oauth2/success*"
+      ],
+      "js": ["oauth2/oauth2_inject.js"],
+      "run_at": "document_start"
     }
   ],
   "permissions": [
     "https://graph.facebook.com/",
     "https://accounts.google.com/o/oauth2/token",
-    "https://github.com/"
+    "https://github.com/",
+    "https://test.salesforce.com/services/oauth2/token",
+    "https://login.salesforce.com/services/oauth2/token"
   ],
   "web_accessible_resources" : [
     "oauth2/oauth2.html"
