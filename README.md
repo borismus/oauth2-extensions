@@ -1,3 +1,9 @@
+# Deprecation note
+
+The [Chrome Identity API][identity] makes this drop-in library obsolete.
+
+[identity]: http://developer.chrome.com/apps/app_identity.html
+
 This is the OAuth 2.0 library for Chrome Extensions. It's available on
 both [github][] and on [google code][].
 
