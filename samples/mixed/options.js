@@ -12,7 +12,19 @@
 
   var github = new OAuth2('github', {
     client_id: '09450dfdc3ae76768b08',
-    client_secret: '8ecfc23e0dba1ce1a295fbabc01fa71db4b80261',
+    client_secret: '8ecfc23e0dba1ce1a295fbabc01fa71db4b80261'
+  });
+
+  var salesforce_test = new OAuth2('salesforce_test', {
+    client_id: '9MVG982oBBDdwyHjmSlfqa7kDEdYzTMk_07sSeJjETiIWQhnUa_RuV32Te.jt9aP0g8wOB3BOqRBqDJr0m5Cm',
+    client_secret: '3113638331195393628',
+    api_scope: ''
+  });
+
+  var salesforce = new OAuth2('salesforce', {
+    client_id: '9MVG982oBBDdwyHjmSlfqa7kDEdYzTMk_07sSeJjETiIWQhnUa_RuV32Te.jt9aP0g8wOB3BOqRBqDJr0m5Cm',
+    client_secret: '3113638331195393628',
+    api_scope: ''
   });
 
   function authorize(providerName) {
@@ -22,7 +34,7 @@
 
   function clearAuthorized() {
     console.log('clear');
-    ['google', 'facebook', 'github'].forEach(function(providerName) {
+    ['google', 'facebook', 'github', 'salesforce', 'salesforce_test'].forEach(function(providerName) {
       var provider = window[providerName];
       provider.clearAccessToken();
     });
@@ -31,7 +43,7 @@
 
   function checkAuthorized() {
     console.log('checkAuthorized');
-    ['google', 'facebook', 'github'].forEach(function(providerName) {
+    ['google', 'facebook', 'github', 'salesforce', 'salesforce_test'].forEach(function(providerName) {
       var provider = window[providerName];
       var button = document.querySelector('#' + providerName);
       if (provider.hasAccessToken()) {
@@ -46,7 +58,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('button#google').addEventListener('click', function() { authorize('google'); });
   document.querySelector('button#github').addEventListener('click', function() { authorize('github'); });
   document.querySelector('button#facebook').addEventListener('click', function() { authorize('facebook'); });
-  document.querySelector('button#clear').addEventListener('click', function() { clearAuthorized() });
+  document.querySelector('button#salesforce').addEventListener('click', function() { authorize('salesforce'); });
+  document.querySelector('button#salesforce_test').addEventListener('click', function() { authorize('salesforce_test'); });
+  document.querySelector('button#clear').addEventListener('click', function() { clearAuthorized(); });
 
   checkAuthorized();
 });
