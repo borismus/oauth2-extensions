@@ -62,6 +62,11 @@ Here's a table that will come in handy:
     <td>http://www.feedly.com/robots.txt</td>
     <td>https://cloud.feedly.com/v3/auth/token</td>
   </tr>
+  <tr>
+    <td>spotify</td>
+    <td>http://www.spotify.com/robots.txt</td>
+    <td>https://accounts.spotify.com/api/token</td>
+  </tr>
 </table>
 
 #### Step 1: Copy library
