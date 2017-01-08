@@ -140,6 +140,13 @@ with.
 For more information about this library, please see this [blog
 post][blog].
 
+## Support
+
+If you're having problems with using the project, use the support forum at CodersClan.
+
+<a href="http://codersclan.net/forum/index.php?repo_id=31"><img src="http://www.codersclan.net/graphics/getSupport_blue_big.png" width="160"></a>
+
+
 
 [gapi]: https://code.google.com/apis/console/
 [goauth2]: http://code.google.com/apis/accounts/docs/OAuth2.html
